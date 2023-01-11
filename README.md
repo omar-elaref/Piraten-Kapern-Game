@@ -1,7 +1,7 @@
 # A1 - Piraten Karpen
 
-  * Author: < You name here >
-  * Email: < Your email here >
+  * Author: < Omar >
+  * Email: < o.k.elaref@gmail.com >
 
 ## Build and Execution
 
