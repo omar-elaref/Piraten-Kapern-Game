@@ -1,10 +1,19 @@
 package pk;
 
-import java.util.Arrays;
-
 public class Player {
+    static Dice dice = new Dice();
+    public static String rolledDice = dice.numberOfRolls();
 
-    static int skullCount(String array[]){
+    public static String getDice(){
+        return rolledDice;
+    }
+
+
+    public void setDice(String rolledDice){
+        this.rolledDice = rolledDice;
+    }
+
+    public int skullCount(String array[]){
         int skull2 = 0;
         for (int j = 0; j < array.length; j++){
             if (array[j] == "SKULL"){
@@ -14,6 +23,8 @@ public class Player {
         return skull2;
     }
 
+    
+    /*
     public static String play() {
         String[] outputs = new String[8];
         Dice die = new Dice();
@@ -66,6 +77,6 @@ public class Player {
             System.out.println(skullCount(outputs));
         }
         return Arrays.toString(outputs);
-    }
+    }*/
 
 }
