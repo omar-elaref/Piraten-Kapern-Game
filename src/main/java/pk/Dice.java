@@ -12,13 +12,13 @@ public class Dice {
         return Faces.values()[bag.nextInt(howManyFaces)];
     }
 
-    public String numberOfRolls(){
+    public String[] numberOfRolls(){
         Dice die = new Dice();
         String[] outputs = new String[8];
 
         for (int i = 0; i < 8; i++){
             outputs[i] = String.valueOf(die.roll());
         }
-        return Arrays.toString(outputs);
+        return outputs;
     }
 }
