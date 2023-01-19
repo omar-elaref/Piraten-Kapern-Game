@@ -1,4 +1,5 @@
 import pk.Dice;
+import pk.Game;
 import pk.Player;
 import pk.Strategy;
 
@@ -10,12 +11,17 @@ public class PiratenKarpen {
         Dice myDice = new Dice();
         System.out.println(myDice.roll());
         System.out.println("That's all folks!");
-        Strategy strat = new Strategy();
+
+        Game firstTry = new Game();
+        firstTry.game();
+
+
+        /*Strategy strat = new Strategy();
 
         Player player1 = new Player();
-        while (player1.goldDiamond < 10){
+        while (player1.goldDiamond < 60){
             player1.points(strat.randomStrategy());
-        }
+        }*/
 
 
 
