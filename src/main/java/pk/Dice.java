@@ -11,7 +11,7 @@ public class Dice {
         Random bag = new Random();
         return Faces.values()[bag.nextInt(howManyFaces)];
     }
-
+    //rolls 8 dice
     public String[] numberOfRolls(){
         Dice die = new Dice();
         String[] outputs = new String[8];

@@ -1,6 +1,7 @@
 package pk;
 
 public class Game {
+    //2 Players play the game
     public int game(){
         Strategy firstStrategy = new Strategy();
         Player player1 = new Player();

@@ -3,6 +3,7 @@ package pk;
 import java.util.Arrays;
 
 public class Strategy {
+    //Implementing the random strategy
     public static String[] randomStrategy(){
 
         Dice die = new Dice();
