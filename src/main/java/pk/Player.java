@@ -13,18 +13,28 @@ public class Player {
         }
         return skull2;
     }
-    //point tracker for ach player
-    public int goldDiamond = 0;
+    //point tracker for each player
+
+    public int[] pointList = new int [42];
+    public int totalPoints = 0;
+
     public int points(String array[]){
+        int roundPoints = 0;
         for (String i : array){
-            if (i == "GOLD" || i == "DIAMOND"){
-                goldDiamond++;
+
+            if (skullCount(array) >= 3){
+                continue;
+            }
+            else if (i == "GOLD" || i == "DIAMOND"){
+                roundPoints++;
             }
         }
-        int roundPoints = goldDiamond * 100;
-        System.out.println("Total points: " +  roundPoints);
-        return roundPoints;
+
+
+        System.out.println("Round points: " +  roundPoints * 100);
+        return roundPoints * 100;
 
     }
+
 
 }

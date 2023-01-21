@@ -1,3 +1,5 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import pk.Dice;
 import pk.Game;
 import pk.Player;
@@ -12,16 +14,20 @@ public class PiratenKarpen {
         System.out.println(myDice.roll());
         System.out.println("That's all folks!");
 
+
         Game firstTry = new Game();
+        long start = System.currentTimeMillis();
         firstTry.game();
+        long end = System.currentTimeMillis();
+        System.out.printf("Simulation time: %d", end - start);
 
 
-        /*Strategy strat = new Strategy();
 
-        Player player1 = new Player();
-        while (player1.goldDiamond < 60){
-            player1.points(strat.randomStrategy());
-        }*/
+
+
+        //Logger log = LogManager.getRootLogger();
+        //log.debug("Test");
+
 
 
 

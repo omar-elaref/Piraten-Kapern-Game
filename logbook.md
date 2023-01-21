@@ -20,3 +20,6 @@ Break
 19 Jan:
 Made the game class to run the games and keep track of each player's progress and points
 
+20 Jan:
+Starting to use the logger
+Fixing minor mistakes in the point system
