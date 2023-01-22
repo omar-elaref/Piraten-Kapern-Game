@@ -19,6 +19,7 @@ public class PiratenKarpen {
         long start = System.currentTimeMillis();
         firstTry.game();
         long end = System.currentTimeMillis();
+        System.out.println();
         System.out.printf("Simulation time: %d", end - start);
 
 

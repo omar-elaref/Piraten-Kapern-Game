@@ -1,5 +1,8 @@
 package pk;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Player {
 
 
@@ -15,7 +18,7 @@ public class Player {
     }
     //point tracker for each player
 
-    public int[] pointList = new int [42];
+
     public int totalPoints = 0;
 
     public int points(String array[]){
@@ -32,6 +35,9 @@ public class Player {
 
 
         System.out.println("Round points: " +  roundPoints * 100);
+        Logger log = LogManager.getRootLogger();
+        log.debug("Player points per round updated");
+
         return roundPoints * 100;
 
     }

@@ -23,3 +23,7 @@ Made the game class to run the games and keep track of each player's progress an
 20 Jan:
 Starting to use the logger
 Fixing minor mistakes in the point system
+
+21 Jan:
+Starting to use Loggers properly
+Fixed the points system for now because I would've run into more problems later if I did not fix it now
