@@ -24,6 +24,7 @@ public class Strategy {
                 run = false;
                 continue;
             }else{
+
                 if (roll.skullCount(roundRoll) >= 3){
                     run = false;
                     continue;
@@ -38,6 +39,7 @@ public class Strategy {
                         continue;
                     }
 
+
                     if (roundRoll[i] == "SKULL"){
                         continue;
                     }else{
@@ -46,6 +48,7 @@ public class Strategy {
                     }
 
                 }
+
             }
 
 

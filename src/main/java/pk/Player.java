@@ -84,6 +84,17 @@ public class Player {
         }
 
 
+
+        if (skullCount(array) > 0){
+
+        }else if (numberOfAKind(array)[0] == 0 || numberOfAKind(array)[0] > 2){
+            if (numberOfAKind(array)[1] == 0 || numberOfAKind(array)[1] > 2){
+                if (numberOfAKind(array)[4] == 0 || numberOfAKind(array)[4] > 2) {
+                    roundPoints += 5;
+                }
+            }
+        }
+
         System.out.println("Round points: " +  roundPoints * 100);
         Logger log = LogManager.getRootLogger();
         log.debug("Player points per round updated");

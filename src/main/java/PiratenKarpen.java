@@ -27,10 +27,7 @@ public class PiratenKarpen {
         System.out.printf("Simulation time: %d", end - start);
 
 
-        //ArrayList<Integer> dice = new ArrayList<Integer>(Collections.nCopies(5, 0));
 
-        //dice.set(0,2);
-        //System.out.println(dice);
 
 
 

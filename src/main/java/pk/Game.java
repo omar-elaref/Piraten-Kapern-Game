@@ -61,7 +61,7 @@ public class Game {
 
         System.out.println();
         System.out.println("Player 1 total points: " + player1.totalPoints);
-        System.out.println("Player 2 list: " + player2.totalPoints);
+        System.out.println("Player 2 total points: " + player2.totalPoints);
         System.out.println("Player 1 wins: " + player1Wins);
         System.out.println("Player 2 wins: " + player2Wins);
 
