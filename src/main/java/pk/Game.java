@@ -19,12 +19,12 @@ public class Game {
         int round = 0;
         Logger log = LogManager.getRootLogger();
 
-        while (round < 3) {
+        while (round < 42) {
             System.out.println();
             System.out.println("ROUND " + (round + 1));
 
             System.out.println("Player 1 turn:");
-            int roundPointsP1 = player1.points(firstStrategy.randomStrategy());
+            int roundPointsP1 = player1.points(firstStrategy.comboStrategy());
             player1.totalPoints += roundPointsP1;
 
 
