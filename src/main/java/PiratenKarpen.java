@@ -5,6 +5,10 @@ import pk.Game;
 import pk.Player;
 import pk.Strategy;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class PiratenKarpen {
 
     public static void main(String[] args) {
@@ -22,6 +26,11 @@ public class PiratenKarpen {
         System.out.println();
         System.out.printf("Simulation time: %d", end - start);
 
+
+        //ArrayList<Integer> dice = new ArrayList<Integer>(Collections.nCopies(5, 0));
+
+        //dice.set(0,2);
+        //System.out.println(dice);
 
 
 
