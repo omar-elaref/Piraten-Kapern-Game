@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 public class Game {
     //2 Players play the game
-    public int game() {
+    public int game(int plays) {
         Strategy firstStrategy = new Strategy();
         Player player1 = new Player();
         Player player2 = new Player();
@@ -19,7 +19,7 @@ public class Game {
         int round = 0;
         Logger log = LogManager.getRootLogger();
 
-        while (round < 42) {
+        while (round < plays) {
             System.out.println();
             System.out.println("ROUND " + (round + 1));
 

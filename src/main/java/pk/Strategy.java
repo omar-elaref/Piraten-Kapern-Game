@@ -81,6 +81,9 @@ public class Strategy {
                 //System.out.println(i);
                 for (int j = 0; j < comboRoll.length; j++){
                     if (comboRoll[j] == i){
+                        if (comboPlayer.skullCount(comboRoll) >= 3){
+                            continue;
+                        }
                         comboRoll[j] = String.valueOf(comboDice.roll());
                     }
                 }
