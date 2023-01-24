@@ -9,6 +9,7 @@ import java.util.HashMap;
 public class Strategy {
     //Implementing the random strategy
     public static String[] randomStrategy(){
+        Logger log = LogManager.getRootLogger();
 
         Dice die = new Dice();
         Player roll = new Player();
@@ -46,6 +47,7 @@ public class Strategy {
                     }else{
                         String newRoll = String.valueOf(die.roll());
                         roundRoll[i]  = newRoll;
+                        log.trace(Arrays.toString(roundRoll));
                     }
 
                 }
@@ -56,17 +58,19 @@ public class Strategy {
 
         }
         System.out.println(Arrays.toString(roundRoll));
-        Logger log = LogManager.getRootLogger();
-        log.debug("The players turn has ended");
+
 
         return roundRoll;
     }
 
     public static String[] comboStrategy(){
+        Logger log = LogManager.getRootLogger();
+
         Player comboPlayer = new Player();
         Dice comboDice = new Dice();
         String[] comboRoll = comboDice.numberOfRolls();
         int[] numberOfFaces = comboPlayer.numberOfAKind(comboRoll);
+
         HashMap<String, Integer> listOfNumbers = new HashMap<>();
         //(Face,number of the face)
         listOfNumbers.put("PARROT",numberOfFaces[0]);
@@ -85,6 +89,7 @@ public class Strategy {
                             continue;
                         }
                         comboRoll[j] = String.valueOf(comboDice.roll());
+                        log.trace(Arrays.toString(comboRoll));
                     }
                 }
             }
@@ -93,6 +98,7 @@ public class Strategy {
 
 
         System.out.println(Arrays.toString(comboRoll));
+
         return comboRoll;
 
     }

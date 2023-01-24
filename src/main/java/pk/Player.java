@@ -96,8 +96,7 @@ public class Player {
         }
 
         System.out.println("Round points: " +  roundPoints * 100);
-        Logger log = LogManager.getRootLogger();
-        log.debug("Player points per round updated");
+
 
         return roundPoints * 100;
 

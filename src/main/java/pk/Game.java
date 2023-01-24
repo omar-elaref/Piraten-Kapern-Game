@@ -8,7 +8,8 @@ import java.util.Arrays;
 
 public class Game {
     //2 Players play the game
-    public int game(int plays) {
+    public int[] game(int plays) {
+        Logger log = LogManager.getRootLogger();
         Strategy firstStrategy = new Strategy();
         Player player1 = new Player();
         Player player2 = new Player();
@@ -17,18 +18,21 @@ public class Game {
         int player2Wins = 0;
 
         int round = 0;
-        Logger log = LogManager.getRootLogger();
+
 
         while (round < plays) {
             System.out.println();
             System.out.println("ROUND " + (round + 1));
+            log.trace("ROUND\n" + (round +1 ));
 
             System.out.println("Player 1 turn:");
+            log.trace("Player 1 turn");
             int roundPointsP1 = player1.points(firstStrategy.comboStrategy());
             player1.totalPoints += roundPointsP1;
+            log.trace("Player 1 total points: " + player1.totalPoints);
 
 
-            log.debug("Player 1 total points updated");
+
 
 
             if (player2.totalPoints >= 6000){
@@ -39,7 +43,6 @@ public class Game {
             int roundPointsP2 = player2.points(firstStrategy.randomStrategy());
             player2.totalPoints += roundPointsP2;
 
-            log.debug("Player 2 total points updated\n");
 
             if (roundPointsP2 < roundPointsP1){
                 player1Wins++;
@@ -68,6 +71,6 @@ public class Game {
 
 
 
-        return round;
+        return new int[] {player1Wins, player2Wins};
     }
 }

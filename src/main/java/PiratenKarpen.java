@@ -1,9 +1,8 @@
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import pk.Dice;
-import pk.Game;
-import pk.Player;
-import pk.Strategy;
+import org.apache.logging.log4j.core.config.Configurator;
+import org.apache.logging.log4j.*;
+import pk.*;
 
 import java.util.*;
 
@@ -16,21 +15,35 @@ public class PiratenKarpen {
         System.out.println(myDice.roll());
         System.out.println("That's all folks!");
 
-
         Game firstTry = new Game();
-        long start = System.currentTimeMillis();
+
+        Tracer tracer = new Tracer();
+
+        if (args.length == 1 && args[0].equals("trace")){
+            tracer.useTracer(true);
+        }else{
+            tracer.useTracer(false);
+        }
+
+
         firstTry.game(42);
-        long end = System.currentTimeMillis();
-        System.out.println();
-        System.out.printf("Simulation time: %d", end - start);
 
 
 
 
 
-
-        //Logger log = LogManager.getRootLogger();
+//        Configurator.setRootLevel(Level.TRACE);
+//
+//
+//
+//        Logger log = LogManager.getRootLogger();
+//        log.trace("Trace");
         //log.debug("Test");
+
+
+//        long start = System.currentTimeMillis();
+//        long end = System.currentTimeMillis();
+//        System.out.printf("Simulation time: %d", end - start);
 
 
 
