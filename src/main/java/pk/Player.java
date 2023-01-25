@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 public class Player {
@@ -26,27 +27,28 @@ public class Player {
 
 
     public int [] numberOfAKind(String array[]){
-        int parrot = 0;
-        int monkey = 0;
-        int gold = 0;
-        int diamond = 0;
-        int saber = 0;
+        Logger log = LogManager.getRootLogger();
+        int PARROT = 0;
+        int MONKEY = 0;
+        int GOLD = 0;
+        int DIAMOND = 0;
+        int SABER = 0;
 
         for (String i : array){
             if (i == "PARROT"){
-                parrot++;
+                PARROT++;
             }else if (i == "MONKEY"){
-                monkey++;
+                MONKEY++;
             }else if (i == "GOLD"){
-                gold++;
+                GOLD++;
             }else if (i == "DIAMOND"){
-                diamond++;
+                DIAMOND++;
             }else if (i == "SABER"){
-                saber++;
+                SABER++;
             }
         }
-
-        return new int[] {parrot, monkey, gold, diamond, saber};
+        log.trace("Number of parrots, monkeys, gold, diamonds, sabers: \n" + Arrays.toString(new int[] {PARROT, MONKEY, GOLD, DIAMOND, SABER}));
+        return new int[] {PARROT, MONKEY, GOLD, DIAMOND, SABER};
     }
 
 

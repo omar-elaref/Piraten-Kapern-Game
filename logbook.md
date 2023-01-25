@@ -27,3 +27,8 @@ Fixing minor mistakes in the point system
 21 Jan:
 Starting to use Loggers properly
 Fixed the points system for now because I would've run into more problems later if I did not fix it now
+
+23 Jan:
+Fully done point system
+Done making the combo strategy
+Starting to implement loggers in an efficient way

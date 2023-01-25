@@ -25,8 +25,25 @@ public class PiratenKarpen {
             tracer.useTracer(false);
         }
 
+        if (args.length == 2 && args[0].equals("combo") && args[1].equals("combo")){
 
-        firstTry.game(42);
+            firstTry.game(42, "combo", "combo");
+
+        }else if (args.length == 2 && args[0].equals("random") && args[1].equals("combo")){
+
+            firstTry.game(42, "random", "combo");
+
+        }else if (args.length == 2 && args[0].equals("combo") && args[1].equals("random")){
+
+            firstTry.game(42, "combo", "random");
+
+        }else if (args.length == 2 && args[0].equals("random") && args[1].equals("random")){
+
+            firstTry.game(42, "random", "random");
+
+        }
+
+
 
 
 

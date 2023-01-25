@@ -15,6 +15,8 @@
     * `mvn package`
   * To run the packaged delivery:
     * `java -jar target/piraten-karpen-jar-with-dependencies.jar` 
+* To run the project in development mode:
+    * `mvn -q exec:java ` (here, `-q` tells maven to be _quiet_)
 
 Remark: **We are assuming here you are using a _real_ shell (e.g., anything but PowerShell on Windows)**
 
