@@ -32,3 +32,15 @@ Fixed the points system for now because I would've run into more problems later 
 Fully done point system
 Done making the combo strategy
 Starting to implement loggers in an efficient way
+
+24 Jan:
+Had to fix a couple bugs in the point system
+Made maven command line work so that random and combo can be called from the command line
+Made the trace using the maven command and finished most of the loggers
+
+25 Jan:
+Successfully made the card interface and a class for sea battle
+Made a class for the deck of cards to make it easier to access cards and to easily add, draw, shuffle and remove cards
+Fixed minor issue in the combo strategy
+
+
