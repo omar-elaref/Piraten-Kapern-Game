@@ -86,36 +86,81 @@ public class Strategy {
         listOfNumbers.put("SABER", numberOfFaces[4]);
 
 
-        for (String i : listOfNumbers.keySet()){
-            if (listOfNumbers.get(i) <= 2 && listOfNumbers.get(i) != 0){
-                log.trace("ReRolling: " + i);
-                //System.out.println(i);
 
-                for (int j = 0; j < comboRoll.length; j++){
 
-                    if (comboRoll[j] == i){
+        int x = 0;
+        while (x < 7) {
 
-                        if (comboPlayer.skullCount(comboRoll) >= 3){
-                            continue;
+            log.trace(Arrays.toString(comboRoll));
+
+            int y = 0;
+
+            for (String i : listOfNumbers.keySet()){
+                if (listOfNumbers.get(i) == 1){
+                    y++;
+                }
+            }
+
+            for (String i : listOfNumbers.keySet()){
+                if (listOfNumbers.get(i) == 2){
+                    y += 2;
+                }
+            }
+
+
+
+
+            if(y == 1){
+                break;
+            }
+
+
+            if (comboPlayer.skullCount(comboRoll) == 2) {
+                break;
+
+            }
+
+            for (String i : listOfNumbers.keySet()) {
+                if (listOfNumbers.get(i) <= 2 && listOfNumbers.get(i) != 0) {
+                    log.trace("ReRolling: " + i);
+                    //System.out.println(i);
+
+                    if (comboPlayer.skullCount(comboRoll) >= 3) {
+                        break;
+
+                    }
+
+                    for (int j = 0; j < comboRoll.length; j++) {
+
+
+                        if (comboRoll[j] == i) {
+
+                            if (comboPlayer.skullCount(comboRoll) >= 3) {
+                                break;
+
+                            }
+
+
+                            comboRoll[j] = String.valueOf(comboDice.roll());
+
+
+                            log.trace("Number of skulls: " + comboPlayer.skullCount(comboRoll));
                         }
-
-
-
-                        comboRoll[j] = String.valueOf(comboDice.roll());
-
-                        comboPlayer.numberOfAKind(comboRoll);
-                        listOfNumbers.put("PARROT",numberOfFaces[0]);
-                        listOfNumbers.put("MONKEY", numberOfFaces[1]);
-                        listOfNumbers.put("GOLD", numberOfFaces[2]);
-                        listOfNumbers.put("DIAMOND", numberOfFaces[3]);
-                        listOfNumbers.put("SABER", numberOfFaces[4]);
-                        log.trace(Arrays.toString(comboRoll));
-
-                        log.trace("Number of skulls: " + comboPlayer.skullCount(comboRoll));
                     }
                 }
             }
+            comboPlayer.numberOfAKind(comboRoll);
+            listOfNumbers.put("PARROT", comboPlayer.numberOfAKind(comboRoll)[0]);
+            listOfNumbers.put("MONKEY", comboPlayer.numberOfAKind(comboRoll)[1]);
+            listOfNumbers.put("GOLD", comboPlayer.numberOfAKind(comboRoll)[2]);
+            listOfNumbers.put("DIAMOND", comboPlayer.numberOfAKind(comboRoll)[3]);
+            listOfNumbers.put("SABER", comboPlayer.numberOfAKind(comboRoll)[4]);
+            log.trace(Arrays.toString(comboRoll));
+
+            x++;
         }
+
+
 
 
         log.trace("Final roll: " + Arrays.toString(comboRoll));

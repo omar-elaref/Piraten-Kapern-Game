@@ -14,6 +14,17 @@ public class Game {
         Player player1 = new Player();
         Player player2 = new Player();
 
+        Deck cards = new Deck();
+
+        cards.deckContents();
+        //cards.addCard(new SeaBattle("Saber",300,2));
+        cards.shuffle();
+        Card saber = cards.drawCard();
+
+
+
+
+
         int player1Wins = 0;
         int player2Wins = 0;
 
