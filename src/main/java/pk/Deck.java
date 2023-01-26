@@ -26,7 +26,7 @@ public class Deck{
 
 
             Card drawnCard = cards.remove(0);
-            System.out.println(drawnCard.getName() + " " + drawnCard.getSabers());
+            System.out.println("The Card drawn was: " + drawnCard.getName() + " " + drawnCard.getSabers());
             cards.add(drawnCard);
             return drawnCard;
         } else {
@@ -47,7 +47,7 @@ public class Deck{
 
         int i = 0;
 
-        while (i < 2){
+        while (i < 28){
             cards.add(nothing);
             i++;
         }

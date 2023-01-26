@@ -21,7 +21,7 @@ public class Game {
         cards.shuffle();
         Card saber = cards.drawCard();
 
-
+        saber.getSabers();
 
 
 
@@ -57,10 +57,10 @@ public class Game {
             int roundPointsP2 = 0;
 
             if (playerOne.equals("random")){
-                roundPointsP1 = player1.points(firstStrategy.randomStrategy());
+                roundPointsP1 = player1.points(firstStrategy.randomStrategy(),player1);
                 player1.totalPoints += roundPointsP1;
             }else if (playerOne.equals("combo")){
-                roundPointsP1 = player1.points(firstStrategy.comboStrategy());
+                roundPointsP1 = player1.points(firstStrategy.comboStrategy(),player1);
                 player1.totalPoints += roundPointsP1;
             }
 
@@ -78,10 +78,10 @@ public class Game {
             log.trace("Player 2 Turn");
 
             if (playerTwo.equals("random")){
-                roundPointsP2 = player2.points(firstStrategy.randomStrategy());
+                roundPointsP2 = player2.points(firstStrategy.randomStrategy(),player2);
                 player2.totalPoints += roundPointsP2;
             }else if (playerTwo.equals("combo")){
-                roundPointsP2 = player2.points(firstStrategy.comboStrategy());
+                roundPointsP2 = player2.points(firstStrategy.comboStrategy(), player2);
                 player2.totalPoints += roundPointsP2;
 
             }

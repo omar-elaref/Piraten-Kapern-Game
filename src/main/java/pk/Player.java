@@ -53,10 +53,21 @@ public class Player {
 
 
     public int totalPoints = 0;
+    public int roundPoints = 0;
 
-    public int points(String array[]){
+    public int points(String array[], Player player){
 
-        int roundPoints = 0;
+        Deck cards = new Deck();
+
+        cards.deckContents();
+
+        cards.shuffle();
+        Card saber = cards.drawCard();
+
+
+
+
+        roundPoints = 0;
         for (int i : numberOfAKind(array)){
 
             if (skullCount(array) >= 3){
@@ -96,6 +107,7 @@ public class Player {
                 }
             }
         }
+        saber.playCard(saber, player, array);
 
         System.out.println("Round points: " +  roundPoints * 100);
 
