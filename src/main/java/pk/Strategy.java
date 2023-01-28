@@ -36,14 +36,12 @@ public class Strategy {
                 }
 
                 int change = 8 - random;
-                log.trace(Arrays.toString(roundRoll));
 
                 for (int i = 0; i < change; i++){
-                    log.trace("Number of skulls: " + roll.skullCount(roundRoll));
 
                     if (roll.skullCount(roundRoll) >= 3){
                         run = false;
-                        log.trace(Arrays.toString(roundRoll));
+
                         continue;
                     }
 
@@ -53,7 +51,7 @@ public class Strategy {
                     }else{
                         String newRoll = String.valueOf(die.roll());
                         roundRoll[i]  = newRoll;
-                        log.trace(Arrays.toString(roundRoll));
+
                     }
 
                 }
@@ -63,19 +61,20 @@ public class Strategy {
 
 
         }
+        log.trace(Arrays.toString(roundRoll));
         System.out.println(Arrays.toString(roundRoll));
 
 
         return roundRoll;
     }
 
-    public static String[] comboStrategy(){
+    public static String[] comboStrategy(Card card){
         Logger log = LogManager.getRootLogger();
 
         Player comboPlayer = new Player();
         Dice comboDice = new Dice();
         String[] comboRoll = comboDice.numberOfRolls();
-        int[] numberOfFaces = comboPlayer.numberOfAKind(comboRoll);
+        int[] numberOfFaces = comboPlayer.numberOfAKind(comboRoll, card);
 
         HashMap<String, Integer> listOfNumbers = new HashMap<>();
         //(Face,number of the face)
@@ -90,7 +89,8 @@ public class Strategy {
 
         int x = 0;
         while (x < 7) {
-
+            log.trace("\n");
+            log.trace("Player will keep going for a higher combo");
             log.trace(Arrays.toString(comboRoll));
 
             int y = 0;
@@ -122,8 +122,8 @@ public class Strategy {
 
             for (String i : listOfNumbers.keySet()) {
                 if (listOfNumbers.get(i) <= 2 && listOfNumbers.get(i) != 0) {
-                    log.trace("ReRolling: " + i);
-                    //System.out.println(i);
+
+
 
                     if (comboPlayer.skullCount(comboRoll) >= 3) {
                         break;
@@ -144,31 +144,106 @@ public class Strategy {
                             comboRoll[j] = String.valueOf(comboDice.roll());
 
 
-                            log.trace("Number of skulls: " + comboPlayer.skullCount(comboRoll));
+
                         }
                     }
                 }
             }
-            comboPlayer.numberOfAKind(comboRoll);
-            listOfNumbers.put("PARROT", comboPlayer.numberOfAKind(comboRoll)[0]);
-            listOfNumbers.put("MONKEY", comboPlayer.numberOfAKind(comboRoll)[1]);
-            listOfNumbers.put("GOLD", comboPlayer.numberOfAKind(comboRoll)[2]);
-            listOfNumbers.put("DIAMOND", comboPlayer.numberOfAKind(comboRoll)[3]);
-            listOfNumbers.put("SABER", comboPlayer.numberOfAKind(comboRoll)[4]);
-            log.trace(Arrays.toString(comboRoll));
+            comboPlayer.numberOfAKind(comboRoll, card);
+            listOfNumbers.put("PARROT", comboPlayer.numberOfAKind(comboRoll, card)[0]);
+            listOfNumbers.put("MONKEY", comboPlayer.numberOfAKind(comboRoll, card)[1]);
+            listOfNumbers.put("GOLD", comboPlayer.numberOfAKind(comboRoll, card)[2]);
+            listOfNumbers.put("DIAMOND", comboPlayer.numberOfAKind(comboRoll, card)[3]);
+            listOfNumbers.put("SABER", comboPlayer.numberOfAKind(comboRoll, card)[4]);
+
 
             x++;
         }
 
 
 
-
-        log.trace("Final roll: " + Arrays.toString(comboRoll));
-        log.trace("blah");
+        log.trace("Player decides to stop rolling");
+        log.trace(Arrays.toString(comboRoll));
         System.out.println(Arrays.toString(comboRoll));
 
 
         return comboRoll;
 
+    }
+
+    public String[] saberStrategy(Card saberCard){
+        Dice saberDice = new Dice();
+        String[] saberRoll = saberDice.numberOfRolls();
+        Player saberPlayer = new Player();
+
+        Logger log = LogManager.getRootLogger();
+        log.trace("Player will decide to use the saber strategy");
+
+
+
+        int saberCount = saberPlayer.numberOfAKind(saberRoll, saberCard)[4];
+        int saber = 0;
+
+        while (true) {
+
+            if (saberPlayer.skullCount(saberRoll) >= 3) {
+                break;
+            }
+
+            int y = 0;
+
+            for (int j = 0; j < saberPlayer.numberOfAKind(saberRoll, saberCard).length; j++){
+                if (saberPlayer.numberOfAKind(saberRoll, saberCard)[j] == 1){
+                    y++;
+                }
+            }
+
+            for (int j = 0; j < saberPlayer.numberOfAKind(saberRoll, saberCard).length; j++){
+                if (saberPlayer.numberOfAKind(saberRoll, saberCard)[j] == 2){
+                    y += 2;
+                }
+            }
+
+            if(y == 1){
+                break;
+            }
+
+
+
+            if (saberCount < saberCard.getSabers()) {
+                log.trace(Arrays.toString(saberRoll));
+                log.trace("Not enough sabers so player will keep rolling");
+                for (int i = 0; i < saberRoll.length; i++) {
+
+
+                    if (saberCount >= saberCard.getSabers()){
+                        continue;
+                    }
+
+
+                    if (saberPlayer.skullCount(saberRoll) >= 3) {
+                        log.trace("Enough sabers");
+                        break;
+                    }
+
+
+
+                    if (saberRoll[i] == "SKULL" || saberRoll[i] == "SABER") {
+
+                    } else {
+                        saberRoll[i] = String.valueOf(saberDice.roll());
+                    }
+                    saberCount = saberPlayer.numberOfAKind(saberRoll, saberCard)[4];
+
+
+                }
+            }else{
+                break;
+            }
+        }
+        log.trace(Arrays.toString(saberRoll));
+        System.out.println(Arrays.toString(saberRoll));
+
+        return saberRoll;
     }
 }

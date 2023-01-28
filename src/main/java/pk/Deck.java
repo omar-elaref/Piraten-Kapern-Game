@@ -26,7 +26,7 @@ public class Deck{
 
 
             Card drawnCard = cards.remove(0);
-            System.out.println("The Card drawn was: " + drawnCard.getName() + " " + drawnCard.getSabers());
+
             cards.add(drawnCard);
             return drawnCard;
         } else {
@@ -43,14 +43,22 @@ public class Deck{
         SeaBattle sea3 = new SeaBattle("Saber", 500, 3);
         SeaBattle sea4 = new SeaBattle("Saber", 1000, 4);
         SeaBattle nothing = new SeaBattle("nope",0,0);
+
+        MonkeyBusiness monkeyParrotCard = new MonkeyBusiness("Monkey Card");
+
         Deck deck = new Deck();
 
         int i = 0;
 
-        while (i < 28){
+        while (i < 24){
             cards.add(nothing);
             i++;
         }
+
+        for(int j = 0; j < 3; j++){
+            cards.add(monkeyParrotCard);
+        }
+
 
         cards.add(sea2);
         cards.add(sea2);

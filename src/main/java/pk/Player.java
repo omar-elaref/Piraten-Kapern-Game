@@ -26,7 +26,7 @@ public class Player {
 
 
 
-    public int [] numberOfAKind(String array[]){
+    public int [] numberOfAKind(String array[], Card card){
         Logger log = LogManager.getRootLogger();
         int PARROT = 0;
         int MONKEY = 0;
@@ -46,8 +46,13 @@ public class Player {
             }else if (i == "SABER"){
                 SABER++;
             }
+
+            if (card.getName() == "Monkey Card"){
+                PARROT += MONKEY;
+                MONKEY = 0;
+            }
+
         }
-        log.trace("Number of parrots, monkeys, gold, diamonds, sabers: \n" + Arrays.toString(new int[] {PARROT, MONKEY, GOLD, DIAMOND, SABER}));
         return new int[] {PARROT, MONKEY, GOLD, DIAMOND, SABER};
     }
 
@@ -55,20 +60,12 @@ public class Player {
     public int totalPoints = 0;
     public int roundPoints = 0;
 
-    public int points(String array[], Player player){
-
-        Deck cards = new Deck();
-
-        cards.deckContents();
-
-        cards.shuffle();
-        Card saber = cards.drawCard();
-
-
-
+    public int points(String array[], Player player, Card card){
 
         roundPoints = 0;
-        for (int i : numberOfAKind(array)){
+        for (int i : numberOfAKind(array, card)){
+
+
 
             if (skullCount(array) >= 3){
                 continue;
@@ -100,14 +97,16 @@ public class Player {
 
         if (skullCount(array) > 0){
 
-        }else if (numberOfAKind(array)[0] == 0 || numberOfAKind(array)[0] > 2){
-            if (numberOfAKind(array)[1] == 0 || numberOfAKind(array)[1] > 2){
-                if (numberOfAKind(array)[4] == 0 || numberOfAKind(array)[4] > 2) {
+        }else if (numberOfAKind(array, card)[0] == 0 || numberOfAKind(array, card)[0] > 2){
+            if (numberOfAKind(array, card)[1] == 0 || numberOfAKind(array, card)[1] > 2){
+                if (numberOfAKind(array, card)[4] == 0 || numberOfAKind(array, card)[4] > 2) {
                     roundPoints += 5;
                 }
             }
         }
-        saber.playCard(saber, player, array);
+
+        card.playCard(card, player, array);
+
 
         System.out.println("Round points: " +  roundPoints * 100);
 
