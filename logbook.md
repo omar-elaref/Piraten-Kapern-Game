@@ -13,6 +13,9 @@ Rolled 8 dice in the Dice class
 Made the random strategy class 
 Changed the getters and setter since they were inefficient
 Made the point tracking for gold and diamond
+Fixed issues with the skullCount function
+Ran 42 games or until one player reached 6000 points
+
 
 18 Jan:
 Break
@@ -39,8 +42,12 @@ Made maven command line work so that random and combo can be called from the com
 Made the trace using the maven command and finished most of the loggers
 
 25 Jan:
+Had minor issues in step 4, so I had to fix it before tagging and releasing
 Successfully made the card interface and a class for sea battle
 Made a class for the deck of cards to make it easier to access cards and to easily add, draw, shuffle and remove cards
 Fixed minor issue in the combo strategy
 
+28 Jan:
+Made the Sea Battle strategy and implemented it within the code
+Added the Monkey Business class and implemented it
 

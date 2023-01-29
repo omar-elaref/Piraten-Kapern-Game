@@ -25,8 +25,6 @@ public class MonkeyBusiness implements Card{
     public void playCard(Card card, Player player, String[] array) {
 
 
-
-
     }
 }
 

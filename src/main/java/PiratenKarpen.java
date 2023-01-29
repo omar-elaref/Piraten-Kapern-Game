@@ -101,35 +101,6 @@ public class PiratenKarpen {
 
 
 
-//        for (Card card : deck.cards){
-//            System.out.println(card.getName() + " " + card.getValue());
-//        }
-//
-//        System.out.println();
-//        deck.drawCard();
-//        System.out.println();
-//
-//        for (Card card : deck.cards){
-//            System.out.println(card.getName() + " " + card.getValue());
-//        }
-
-
-//        Configurator.setRootLevel(Level.TRACE);
-//
-//
-//
-//        Logger log = LogManager.getRootLogger();
-//        log.trace("Trace");
-        //log.debug("Test");
-
-
-//        long start = System.currentTimeMillis();
-//        long end = System.currentTimeMillis();
-//        System.out.printf("Simulation time: %d", end - start);
-
-
-
-
     }
     
 }
