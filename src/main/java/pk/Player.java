@@ -108,7 +108,7 @@ public class Player {
         card.playCard(card, player, array);
 
 
-        System.out.println("Round points: " +  roundPoints * 100);
+        //System.out.println("Round points: " +  roundPoints * 100);
 
 
         return roundPoints * 100;

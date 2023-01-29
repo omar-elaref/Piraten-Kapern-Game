@@ -23,30 +23,37 @@ public class PiratenKarpen {
             tracer.useTracer(true);
             firstTry.game(42,"random","random");
 
-        }else{
+        }else if (args.length == 1){
             tracer.useTracer(false);
             firstTry.game(42,"random","random");
 
         }
 
+
         if (args.length == 2 && args[0].equals("combo") && args[1].equals("combo")){
 
+            tracer.useTracer(false);
             firstTry.game(42, "combo", "combo");
 
         }else if (args.length == 2 && args[0].equals("random") && args[1].equals("combo")){
 
+
+            tracer.useTracer(false);
             firstTry.game(42, "random", "combo");
+
+
 
         }else if (args.length == 2 && args[0].equals("combo") && args[1].equals("random")){
 
+            tracer.useTracer(false);
             firstTry.game(42, "combo", "random");
 
         }else if (args.length == 2 && args[0].equals("random") && args[1].equals("random")){
 
+            tracer.useTracer(false);
             firstTry.game(42, "random", "random");
 
         }
-
 
 
         if (args.length == 3 && args[0].equals("trace")){
@@ -72,6 +79,7 @@ public class PiratenKarpen {
 
         }else if (args.length == 3) {
             tracer.useTracer(false);
+
             if (args[1].equals("combo") && args[2].equals("combo")) {
 
                 firstTry.game(42, "combo", "combo");

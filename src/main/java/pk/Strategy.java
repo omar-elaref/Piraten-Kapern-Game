@@ -39,11 +39,7 @@ public class Strategy {
 
                 for (int i = 0; i < change; i++){
 
-                    if (roll.skullCount(roundRoll) >= 3){
-                        run = false;
 
-                        continue;
-                    }
 
 
                     if (roundRoll[i] == "SKULL"){
@@ -62,7 +58,7 @@ public class Strategy {
 
         }
         log.trace(Arrays.toString(roundRoll));
-        System.out.println(Arrays.toString(roundRoll));
+        //System.out.println(Arrays.toString(roundRoll));
 
 
         return roundRoll;
@@ -164,7 +160,7 @@ public class Strategy {
 
         log.trace("Player decides to stop rolling");
         log.trace(Arrays.toString(comboRoll));
-        System.out.println(Arrays.toString(comboRoll));
+        //System.out.println(Arrays.toString(comboRoll));
 
 
         return comboRoll;
@@ -242,7 +238,7 @@ public class Strategy {
             }
         }
         log.trace(Arrays.toString(saberRoll));
-        System.out.println(Arrays.toString(saberRoll));
+        //System.out.println(Arrays.toString(saberRoll));
 
         return saberRoll;
     }

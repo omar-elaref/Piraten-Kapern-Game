@@ -1,13 +1,16 @@
 package pk;
 
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.config.Configurator;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Game {
     //2 Players play the game
+
     public int[] game(int plays, String playerOne, String playerTwo) {
         Logger log = LogManager.getRootLogger();
         Strategy firstStrategy = new Strategy();
@@ -48,20 +51,20 @@ public class Game {
         int ties = 0;
 
         while (round < plays) {
-            System.out.println();
+            //System.out.println();
             Card cardDrawn1 = cards.drawCard();
 
 
             Card cardDrawn2 = cards.drawCard();
 
 
-            System.out.println("ROUND " + (round + 1));
+            //System.out.println("ROUND " + (round + 1));
             log.trace("ROUND: " + (round +1 ) + "\n");
 
-            System.out.println("Player 1 turn:");
+            //System.out.println("Player 1 turn:");
             log.trace("Player 1 turn");
             log.trace("The card drawn is : " + cardDrawn1.getName() + " " + cardDrawn1.getSabers());
-            System.out.println("The card drawn is : " + cardDrawn1.getName() + " " + cardDrawn1.getSabers());
+            //System.out.println("The card drawn is : " + cardDrawn1.getName() + " " + cardDrawn1.getSabers());
 
             int roundPointsP1 = 0;
             int roundPointsP2 = 0;
@@ -91,10 +94,10 @@ public class Game {
                 break;
             }
 
-            System.out.println("Player 2 turn:");
+            //System.out.println("Player 2 turn:");
             log.trace("Player 2 Turn");
             log.trace("The card drawn is: " + cardDrawn2.getName() + " " + cardDrawn2.getSabers());
-            System.out.println("The card drawn is: " + cardDrawn2.getName() + " " + cardDrawn2.getSabers());
+            //System.out.println("The card drawn is: " + cardDrawn2.getName() + " " + cardDrawn2.getSabers());
 
             if (cardDrawn2.getName() == "Saber"){
                 roundPointsP2 = player2.points(firstStrategy.saberStrategy(cardDrawn2), player2, cardDrawn2 );
@@ -177,8 +180,9 @@ public class Game {
         System.out.println("Player 1 win percentage: " + roundedWin1);
         System.out.println("Player 2 win percentage: " + roundedWin2);
 
+
         log.info("Player 1 win percentage: " +  roundedWin1);
-        log.info("Player 2 win percentage: " + roundedWin2);
+        log.info("Player 2 win percentage: " + roundedWin2 + "\n");
         return new int[] {player1Wins, player2Wins};
     }
 }

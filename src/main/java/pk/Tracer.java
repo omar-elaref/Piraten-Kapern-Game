@@ -12,9 +12,11 @@ public class Tracer {
         if (tracer == true){
             Configurator.setRootLevel(Level.TRACE);
             log.trace("Tracing will now be on");
-        }else{
-            Configurator.setRootLevel(Level.DEBUG);
+        }
+        else if (tracer == false){
+            Configurator.setRootLevel(Level.INFO);
             log.info("Tracing is off");
+
         }
     }
 }
